@@ -6,14 +6,18 @@ const path = require("path");
 const fs = require("fs");
 const logo = require('asciiart-logo');
 
+fs.rmdirSync("output", { // Deleting if the folder already exist
+    recursive: true, 
+  }); 
+fs.mkdirSync(path.join(__dirname, "output")); // Creating the folder for html file
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-const employeesArray = [];
+const employeesArray = []; // Declaring array of objects
 
-console.log(
+console.log( // Creating a logo for the app using the package 'asciiart-logo'
     logo({
         name: 'Template Enginee Generator',
         font: 'Speed',
@@ -71,7 +75,8 @@ function promptUser(){
            promptIntern();
         } else {
             console.log(employeesArray);
-            render(employeesArray);             
+            //render(employeesArray);
+            fs.writeFileSync(outputPath,render(employeesArray));                
         }
         
         
@@ -119,7 +124,7 @@ function  promtEngineer(){
            promptIntern();
         } else {
             console.log(employeesArray);
-            render(employeesArray);     
+            fs.writeFileSync(outputPath,render(employeesArray));     
         }
     });
 }
@@ -160,7 +165,8 @@ function promptIntern(){
            promptIntern();
         } else {
             console.log(employeesArray);
-            console.log(render(employeesArray));   
+            //console.log(render(employeesArray));
+            fs.writeFileSync(outputPath,render(employeesArray));      
         }
     });
 }
