@@ -51,9 +51,9 @@ const valEmail = async (input) => { // To validate email format
  }; 
 
  const valGitHub = async (input) => { // To validate GitHub username format
-    const re = /\B@((?!.*(-){2,}.*)[a-z0-9][a-z0-9-]{0,38}[a-z0-9])/ig;
+    const re = /\B((?!.*(-){2,}.*)[a-z0-9][a-z0-9-]{0,38}[a-z0-9])/ig;
     if (!re.test(input)) {
-       return 'Incorrect asnwer.It is not a valid GitHub username. Format: @valid or @valid-username';
+       return 'Incorrect asnwer.It is not a valid GitHub username. Format: valid or valid-username';
     }
     return true;
  }; 
