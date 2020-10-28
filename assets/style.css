@@ -9,3 +9,14 @@
 .intern {
     background-color: lightcyan;
 }
+
+ .team-heading {
+    background: url(../assets/images/teamWork.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+ }
+ .back-text {
+   color: lightskyblue; 
+}
