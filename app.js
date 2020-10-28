@@ -17,14 +17,14 @@ const render = require("./lib/htmlRenderer");
 
 const employeesArray = []; // Declaring an array of objects
 
-const valName = async (input) => {
+const valName = async (input) => { // To validate name
     if (input === '' || /^\s+$/.test(input)) {
        return 'Incorrect asnwer. It must contain at least a character';
     }
     return true;
  };
 
- const valId = async (input) => {
+ const valId = async (input) => { // To validate id number
     if (input === '' || /^\s+$/.test(input) || !isNumber(input)) {
        return 'Incorrect asnwer. It must contain at least a number';
     }
@@ -34,7 +34,7 @@ const valName = async (input) => {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-const valEmail = async (input) => {
+const valEmail = async (input) => { // To validate email format
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!re.test(input)) {
        return 'Incorrect asnwer.It is not a valid e-mail. Format: xxxx@xxxx.xxx';
@@ -42,7 +42,7 @@ const valEmail = async (input) => {
     return true;
  }; 
 
- const valNumber = async (input) => {
+ const valNumber = async (input) => { // To validate phone number format
     const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
     if (!re.test(input)) {
        return 'Incorrect asnwer.It is not a valid Phone Number. Format: 111-111-1111 or (111) 111-1111';
@@ -50,7 +50,7 @@ const valEmail = async (input) => {
     return true;
  }; 
 
- const valGitHub = async (input) => {
+ const valGitHub = async (input) => { // To validate GitHub username format
     const re = /\B@((?!.*(-){2,}.*)[a-z0-9][a-z0-9-]{0,38}[a-z0-9])/ig;
     if (!re.test(input)) {
        return 'Incorrect asnwer.It is not a valid GitHub username. Format: @valid or @valid-username';
@@ -78,7 +78,7 @@ console.log( // Creating a logo for the app using the package 'asciiart-logo'
 );
 
 function promptUser(){
-    inquirer.prompt([
+    inquirer.prompt([ // Generating prompts to get user info.
         {
             type: "input",
             name: "name",
@@ -127,7 +127,7 @@ function promptUser(){
 promptUser();
 
 function  promtEngineer(){
-    inquirer.prompt([
+    inquirer.prompt([ // Generating prompts to get user info.
         {
             type: "input",
             name: "name",
@@ -173,7 +173,7 @@ function  promtEngineer(){
     });
 }
 function promptIntern(){
-    inquirer.prompt([
+    inquirer.prompt([ // Generating prompts to get user info.
         {
             type: "input",
             name: "name",
