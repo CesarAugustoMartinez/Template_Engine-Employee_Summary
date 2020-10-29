@@ -2,7 +2,7 @@
 
 ![picture](/assets/images/videoApp.gif)
 
-Links : [Project](https://cesaraugustomartinez.github.io/Template_Engine-Employee_Summary/), [Video](https://cesaraugustomartinez.github.io/README_Generator/video.html), [Repository](https://github.com/CesarAugustoMartinez/Template_Engine-Employee_Summary)
+Links : [Video](https://cesaraugustomartinez.github.io/Template_Engine-Employee_Summary/video.html), [Repository](https://github.com/CesarAugustoMartinez/Template_Engine-Employee_Summary)
 
 ---
 
@@ -124,6 +124,8 @@ module.exports = Engineer;
 ## How To Use
 
 This web application has a principal app.js file where the user will invoke it by using the commmand node app.js into the terminal. Once It has been invoked the app will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns.
+
+[Back To The Top](#Template_Engine-Employee_Summary)
  
 ## Screenshots
 
@@ -154,6 +156,8 @@ This web application has a principal app.js file where the user will invoke it b
 [Back To The Top](#Template_Engine-Employee_Summary)
 
 ---
+
+[Back To The Top](#Template_Engine-Employee_Summary)
 
 ## References
 
