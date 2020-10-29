@@ -3,20 +3,22 @@
 }
 
 .engineer {
-    background-color: lightskyblue;
+    background-color: rgb(62, 177, 248);
 }
 
 .intern {
-    background-color: lightcyan;
+    background-color: rgb(65, 209, 253);
 }
 
- .team-heading {
-    background: url(../assets/images/teamWork.jpg);
+#teamImage {
+    background-image: url(../images/teamImage.jpg);
+    height: 200px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+    background-size: 100% 100%;
  }
  .back-text {
-   color: lightskyblue; 
+    padding-top: 70px;
+    padding-left: 10px; 
+   color: rgb(247, 248, 248); 
 }
