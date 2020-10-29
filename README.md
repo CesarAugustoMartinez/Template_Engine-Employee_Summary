@@ -1,6 +1,6 @@
 # Template_Engine-Employee_Summary
 
-![picture](/assets/images/appVideo.gif)
+![picture](/assets/images/videoApp.gif)
 
 Links : [Project](https://cesaraugustomartinez.github.io/Template_Engine-Employee_Summary/), [Video](https://cesaraugustomartinez.github.io/README_Generator/video.html), [Repository](https://github.com/CesarAugustoMartinez/Template_Engine-Employee_Summary)
 
@@ -147,7 +147,9 @@ This web application has a principal app.js file where the user will invoke it b
 
 ![picture](assets/images/array.png)
 
+- HTML webpage generated
 
+![picture](assets/images/htmlPage.png)
 
 [Back To The Top](#Template_Engine-Employee_Summary)
 

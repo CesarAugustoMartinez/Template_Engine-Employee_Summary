@@ -49,7 +49,7 @@
 <script>
     $(window).on('load',function(){
         $('#myModal').modal('show');
-        var $videoSrc = "./assets/video/appVideo.mp4";  
+        var $videoSrc = "./assets/video/videoApp.mp4";  
         console.log($videoSrc);
         // when the modal is opened autoplay it  
         $('#myModal').on('shown.bs.modal', function (e) {
@@ -59,7 +59,7 @@
         // stop playing the youtube video when I close the modal and open the GitHub respository. 
         $('#myModal').on('hide.bs.modal', function (e) {
             $("#video").attr('src',$videoSrc); 
-            window.open("https://cesaraugustomartinez.github.io/README_Generator/","_self");
+            window.open("https://cesaraugustomartinez.github.io/Template_Engine-Employee_Summary/","_self");
             window.close();
         }) 
     });
