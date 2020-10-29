@@ -2,7 +2,7 @@
 
 ![picture](/assets/images/appVideo.gif)
 
-Links : [Project](https://cesaraugustomartinez.github.io/README_Generator/), [Video](https://cesaraugustomartinez.github.io/README_Generator/video.html), [Repository](https://github.com/CesarAugustoMartinez/README_Generator)
+Links : [Project](https://cesaraugustomartinez.github.io/Template_Engine-Employee_Summary/), [Video](https://cesaraugustomartinez.github.io/README_Generator/video.html), [Repository](https://github.com/CesarAugustoMartinez/Template_Engine-Employee_Summary)
 
 ---
 
@@ -19,7 +19,7 @@ Links : [Project](https://cesaraugustomartinez.github.io/README_Generator/), [Vi
 
 ## Description
 
-The goal of this project is create a command-line application that dynamically generates a professional README.md file from a user's input using the [Inquire package](https://www.npmjs.com/package/inquirer). This app was builded using NODE.js code to generate a dynamically command-line app. 
+The goal of this project is cerate a command-lin application that takes information about employees and dynamically generates an HTML webpage that displays summaries for each person. The user will enter data using inquirer.prompts [Inquire package](https://www.npmjs.com/package/inquirer). This app was builded using NODE.js code to generate a dynamically command-line app. 
 
 ##### Technologies
 
@@ -30,78 +30,124 @@ The goal of this project is create a command-line application that dynamically g
 - Package.json
 - Html
 
-##### Code sample - JavaScript
+##### Code sample - JavaScript - RegExr
 #
 
 ```js
-function writeToFile(fileName, data) {
-    return fs.writeFileSync(fileName,data);
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const inquirer = require("inquirer");
+const path = require("path");
+const fs = require("fs");
+const logo = require('asciiart-logo');
 
-}
+fs.rmdirSync("output", { // Deleting if the folder already exist
+    recursive: true, 
+  }); 
+fs.mkdirSync(path.join(__dirname, "output")); // Creating the folder for html file
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "team.html");
 
+const render = require("./lib/htmlRenderer");
 
-// function to initialize program
-function init() {
-    inquirer.prompt(questions)
-    .then(function(response){
-        writeToFile("README.md",generateReadme(response));
-    })
-    .catch(function(err){
-        console.log(err);
-    })
+const employeesArray = []; // Declaring an array of objects
 
-}
+const valName = async (input) => { // To validate name
+    if (input === '' || /^\s+$/.test(input)) {
+       return 'Incorrect asnwer. It must contain at least a character';
+    }
+    return true;
+ };
 
 ```
 ##### Code sample - package.json
 #
 ```json
  {
-  "name": "readme_generator",
+  "name": "unit10hw",
   "version": "1.0.0",
-  "description": "Package for readme generator",
-  "main": "index.js",
+  "description": "OOP and testing for week 10 homework",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose test/*"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CesarAugustoMartinez/README_Generator.git"
+    "url": "git+https://github.com/stevetrilogy/unit10hw.git"
   },
-  "author": "Cesar A Martinez",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CesarAugustoMartinez/README_Generator/issues"
+    "url": "https://github.com/stevetrilogy/unit10hw/issues"
   },
-  "homepage": "https://github.com/CesarAugustoMartinez/README_Generator#readme",
+  "homepage": "https://github.com/stevetrilogy/unit10hw#readme",
   "dependencies": {
-    "inquirer": "^7.3.3"
+    "asciiart-logo": "^0.2.6",
+    "inquirer": "^6.3.1"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
   }
+}
+
+```
+
+##### Code sample - How to create a class
+#
+```js
+// TODO: Write code to define and export the Engineer class.  HINT: This class should inherit from Employee.
+const Employee = require("./Employee");
+
+class Engineer extends Employee{
+    constructor(name,id,email,github){
+        super(name,id,email);
+        this.github = github;        
+    }
+    getGithub(){
+        return this.github;
+    }
+    getRole(){
+        return 'Engineer';
+    }
+} 
+
+module.exports = Engineer;
 
 ```
 ---
 
 ## How To Use
 
-This web application has a index.js file where the user will invoke it by using the commmand node index.js into the terminal. Once It has been invoked the app will ask for information aobut the project using inputs. For each prompt asked to the user It generate a specific section into the README.md file. This file will have sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions.
+This web application has a principal app.js file where the user will invoke it by using the commmand node app.js into the terminal. Once It has been invoked the app will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns.
  
 ## Screenshots
 
-- Command to run the app
+- Command to run the app and principal screen
 
-![picture](assets/images/run.png)
+![picture](assets/images/appStart.png)
 
-- Simple Inputs 
+- Manager's Inputs 
 
-![picture](assets/images/simpleInputs.png)
+![picture](assets/images/manager.png)
 
-- Input with choices
+- Engineer's Inputs and validation
 
-![picture](assets/images/choicesInput.png)
+![picture](assets/images/valEmail.png)
 
-- README file generated - sample
+- Intern's Inputs
 
-![picture](assets/images/readmeFileGenerated.png)
+![picture](assets/images/intern.png)
+
+- Data - Array
+
+![picture](assets/images/array.png)
+
+
 
 [Back To The Top](#Template_Engine-Employee_Summary)
 
